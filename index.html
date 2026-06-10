@@ -30,14 +30,11 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
-        <div class="
-        <!-- مساحة إعلانية علوية مثبتة للتسييل المالي (تحويل إلى رابط تفاعلي) -->
-        <a href="https://t.me/YOUR_TELEGRAM_ASSHQARR" target="_blank" class="block mb-10 p-4 bg-[#121B2E] border border-dashed border-purple-500/30 rounded-2xl flex flex-col items-center justify-center text-center group hover:border-purple-500/60 hover:bg-[#15223B] transition-all cursor-pointer">
+        <a href="https://t.me/ASSHQARR" target="_blank" class="block mb-10 p-4 bg-[#121B2E] border border-dashed border-purple-500/30 rounded-2xl flex flex-col items-center justify-center text-center group hover:border-purple-500/60 hover:bg-[#15223B] transition-all cursor-pointer">
             <span class="text-[10px] text-purple-400 uppercase tracking-widest mb-1 font-bold">★ مساحة راعية متميزة ★</span>
             <h3 class="text-sm font-bold text-white group-hover:text-purple-300 transition-colors">هل تملك أداة ذكاء اصطناعي جديدة؟ اعلن هنا لتصل لآلاف الزوار يومياً</h3>
             <p class="text-xs text-gray-400 mt-1"><i class="fab fa-telegram-plane ml-1"></i> اضغط هنا للتواصل معنا فوراً عبر تليجرام وحجز مساحتك</p>
-        </a
-        </div>
+        </a>
 
         <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 mb-8 shadow-xl">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -46,7 +43,7 @@
                         type="text"
                         id="searchInput"
                         onInput="filterTools()"
-                        placeholder="ابحث عن أي أداة أو مجال (مثال: فاشن، صور، فيديو، برمجة، ترجمة، تسويق)..."
+                        placeholder="ابحث عن أي أداة أو مجال (مثال: فاشن، صور، صوت، فيديو، إعلانات)..."
                         class="w-full bg-[#151D30] border border-gray-700/60 rounded-xl pr-4 pl-4 py-3 text-sm focus:outline-none focus:border-purple-500 text-white transition-all placeholder-gray-500"
                     >
                 </div>
@@ -64,13 +61,13 @@
             </div>
         </div>
 
-        <div class="mb-6 px-2">
+        <div class="mb-8 px-2 flex justify-between items-center">
             <p class="text-sm text-gray-400">
-                عدد الأدوات العملاقة المتوفرة حالياً: <span id="toolsCount" class="text-purple-400 font-black text-base">0</span> أداة جاهزة للعمل
+                عدد الأدوات المتاحة: <span id="toolsCount" class="text-purple-400 font-black text-base">0</span> أداة احترافية مقسمة
             </p>
         </div>
 
-        <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="categoriesContainer" class="space-y-16">
             </div>
 
     </main>
@@ -80,89 +77,128 @@
     </footer>
 
     <script>
+        // تعريف الأقسام وتخصصاتها
+        const CATEGORIES = {
+            "fashion": { name: "تكنولوجيا الفاشن وتصميم الأزياء", icon: "fa-shirt" },
+            "image-gen": { name: "توليد الصور والرسم الإبداعي", icon: "fa-image" },
+            "marketing-ads": { name: "التصميم الإعلاني وتصوير المنتجات المتميز", icon: "fa-rectangle-ad" },
+            "video-gen": { name: "إنتاج الفيديو والسينما والمؤثرات البصرية", icon: "fa-video" },
+            "audio-music": { name: "الهندسة الصوتية والموسيقى والاستنساخ", icon: "fa-music" },
+            "shorts-tiktok": { name: "صناعة وتعديل محتوى Shorts و TikTok", icon: "fa-clapperboard" },
+            "coding-web": { name: "البرمجة الذكية وبناء المواقع الفورية", icon: "fa-code" }
+        };
+
+        // الأدوات مصفوفة وموزعة بدقة حسب تخصصها الفرعي
         const TOOLS = [
-            // --- قسم الفاشن والموضة ---
-            { name: "Lalaland AI", pricing: "freemium", badge: "عارضي أزياء", url: "https://lalaland.ai", description: "المنصة الرائدة لتوليد عارضي أزياء مخصصين بالكامل وملائمين لملابسك الرقمية لتوفير تكاليف التصوير الفوتوغرافي الحقيقي للبراند." },
-            { name: "Zmo AI (Fashion)", pricing: "freemium", badge: "جلسات تصوير", url: "https://www.zmo.ai", description: "ارفع صورة قطعة الملابس وهي معلقة على الحائط، واصنع جلسة تصوير احترافية على عارضي أزياء حقيقيين وفي خلفيات سينمائية فورية." },
-            { name: "The New Black", pricing: "freemium", badge: "تصميم أزياء", url: "https://www.thenewblack.ai", description: "مصمم ومولد أفكار أزياء؛ اكتب فكرتك نصياً لتحصل على تصاميم مبتكرة وجاهزة للفساتين، الجاكيتات، الأحذية والحقائب." },
-            { name: "CALA", pricing: "freemium", badge: "إنتاج ملابس", url: "https://www.cala.com", description: "منصة متكاملة لتصميم وإنتاج الملابس بالذكاء الاصطناعي، تتيح لك الانتقال من الفكرة النصية إلى التصنيع الفعلي والشحن." },
+            // --- تكنولوجيا الفاشن وتصميم الأزياء ---
+            { category: "fashion", name: "Lalaland AI", pricing: "freemium", badge: "عارضي أزياء", url: "https://lalaland.ai", description: "المنصة الرائدة عالمياً لتوليد عارضي أزياء مخصصين بالكامل وملائمين لملابسك الرقمية لتوفير تكاليف التصوير الحقيقي." },
+            { category: "fashion", name: "Zmo AI (Fashion)", pricing: "freemium", badge: "جلسات تصوير موديلز", url: "https://www.zmo.ai", description: "ارفع صورة قطعة الملابس وهي معلقة، واصنع جلسة تصوير احترافية على عارضي أزياء حقيقيين وفي خلفيات سينمائية فورية." },
+            { category: "fashion", name: "The New Black", pricing: "freemium", badge: "أفكار أزياء", url: "https://www.thenewblack.ai", description: "مصمم ومولد أفكار ملابس؛ اكتب فكرتك نصياً لتحصل على تصاميم مبتكرة وجاهزة للفساتين، الجاكيتات، الحقائب والأحذية." },
+            { category: "fashion", name: "CALA", pricing: "freemium", badge: "إنتاج ملابس متكامل", url: "https://www.cala.com", description: "منصة متكاملة لتصميم وإنتاج الملابس، تتيح لك الانتقال من الفكرة النصية البرومبت إلى التصنيع الفعلي والشحن." },
             
-            // --- قسم توليد الصور والإعلانات ---
-            { name: "Flux.1 Schnell", pricing: "free", badge: "مجاني بالكامل", url: "https://blackforestlabs.ai", description: "أحدث طفرة في توليد الصور فائقة الواقعية؛ يتميز بقدرته المذهلة على كتابة النصوص الإعلانية واللافتات داخل الصور بدون أي تشويه وبدقة." },
-            { name: "Midjourney v6", pricing: "premium", badge: "جودة فنية حادة", url: "https://www.midjourney.com", description: "الأداة الأشهر في العالم لإنتاج الصور واللوحات الفنية والتصاميم السينمائية من الأوامر النصية البسيطة والاحترافية." },
-            { name: "Stable Diffusion XL", pricing: "free", badge: "مفتوح المصدر", url: "https://stability.ai", description: "نموذج قوي ومجاني بالكامل لتوليد وتعديل الصور مع تحكم مطلق في الإضاءة والأبعاد وتفاصيل الوجوه للمحترفين." },
-            { name: "Leonardo AI", pricing: "freemium", badge: "نقاط يومية مجانية", url: "https://leonardo.ai", description: "توليد تصاميم وصور ثلاثية الأبعاد ونماذج ألعاب مع ميزات الرسم بالذكاء الاصطناعي المباشر والتلوين الإحترافي." },
-            { name: "Flair AI", pricing: "freemium", badge: "تصوير منتجات", url: "https://flair.ai", description: "أداة تصوير المنتجات الإعلانية؛ اسحب وأفلت منتجك، ثم أضف عناصر الطبيعة أو الديكور حوله ليتم دمجهم وإضاءتهم في ثانية واحدة كأنها في استوديو." },
-            { name: "Adobe Firefly", pricing: "freemium", badge: "تصاميم تجارية", url: "https://www.adobe.com", description: "محرك التصوير من أدوبي؛ يمنحك ميزة المسح السحري والتوليد، مع حقوق تجارية كاملة للمصممين والشركات دون قلق." },
-            { name: "Canva AI Tools", pricing: "freemium", badge: "تصميم سريع", url: "https://www.canva.com", description: "مجموعة أدوات مدمجة داخل كانفا لمسح الخلفيات، توليد الصور، الكتابة السحرية، وتعديل الفيديوهات بضغطة زر مبسطة." },
-            { name: "Clipdrop", pricing: "freemium", badge: "تعديل صور سحري", url: "https://clipdrop.co", description: "مجموعة أدوات لمسح الأشخاص غير المرغوب فيهم من الصور، تحسين جودة الصور الضعيفة، وتغيير الإضاءة الخلفية باحترافية كاملة." },
+            // --- توليد الصور والرسم الإبداعي ---
+            { category: "image-gen", name: "Flux.1 Schnell", pricing: "free", badge: "مجاني بالكامل", url: "https://blackforestlabs.ai", description: "أحدث طفرة في توليد الصور؛ يتميز بقدرته المذهلة على كتابة النصوص الإعلانية واللافتات داخل الصور بدون أي تشويه إملائي وبدقة خرافية." },
+            { category: "image-gen", name: "Midjourney v6", pricing: "premium", badge: "جودة فنية حادة", url: "https://www.midjourney.com", description: "الأداة الأشهر والأقوى في العالم لإنتاج الصور واللوحات الفنية والتصاميم المذهلة من الأوامر النصية البسيطة والاحترافية." },
+            { category: "image-gen", name: "Stable Diffusion XL", pricing: "free", badge: "مفتوح المصدر", url: "https://stability.ai", description: "نموذج قوي ومجاني بالكامل لتوليد وتعديل الصور مع تحكم مطلق في الإضاءة والأبعاد وتفاصيل الوجوه للمحترفين والمطورين." },
+            { category: "image-gen", name: "Leonardo AI", pricing: "freemium", badge: "نقاط يومية متجددة", url: "https://leonardo.ai", description: "توليد تصاميم وصور ثلاثية الأبعاد ونماذج ألعاب مع ميزات الرسم بالذكاء الاصطناعي المباشر والتلوين التوليدي السريع." },
 
-            // --- قسم إنتاج الفيديو والسينما ---
-            { name: "Luma Dream Machine", pricing: "freemium", badge: "فيديو حركي", url: "https://lumalabs.ai/dream-machine", description: "يولد فيديوهات سينمائية واقعية وحركية مدتها 5 ثوانٍ من النصوص أو الصور بدقة بالغة وفهم لحركات الكاميرا المعقدة." },
-            { name: "Kling AI", pricing: "freemium", badge: "حركات بشرية معقدة", url: "https://klingai.com", description: "عملاق إنتاج الفيديو الآسيوي الفاخر، يعطي حركات جسدية واقعية جداً ويمتاز بإنتاج مشاهد طويلة ونقية للوجوه والطبيعة." },
-            { name: "Runway Gen-3", pricing: "freemium", badge: "سينمائي محترف", url: "https://runwayml.com", description: "الخيار الأول لمخرجي الأفلام ومصنعي المحتوى لإنتاج مؤثرات بصرية وفيديوهات فائقة الواقعية والتحكم في زوايا الإخراج." },
-            { name: "Pika Labs", pricing: "freemium", badge: "تحريك صور مذهل", url: "https://pika.art", description: "منصة رائعة لتحريك الصور الثابتة وإضافة مؤثرات حركية أو كرتونية مع إمكانية التحكم في حركة عناصر معينة داخل الفيديو." },
-            { name: "Sora AI", pricing: "premium", badge: "واقعية سينمائية كاملة", url: "https://openai.com", description: "النموذج الثوري الخارق من OpenAI القادر على توليد فيديوهات واقعية تصل إلى دقيقة كاملة بفهم عميق للفيزياء وحركة الكاميرا." },
-            { name: "Kaiber AI", pricing: "freemium", badge: "فيديوهات أنمي وموسيقى", url: "https://kaiber.ai", description: "أداة توليد فيديو فنية جداً، تستخدم لصناعة مقاطع فيديو موسيقية وفيديوهات متحركة بأسلوب الأنمي والسايبربانك المثير." },
+            // --- التصميم الإعلاني وتصوير المنتجات المتميز ---
+            { category: "marketing-ads", name: "Flair AI", pricing: "freemium", badge: "تصوير منتجات إعلانية", url: "https://flair.ai", description: "أداة احترافية لتصميم صور المنتجات؛ اسحب وأفلت منتجك، واقرن فكرتك بعناصر الديكور ليتم دمجهم وإضاءتهم سينمائياً في ثوانٍ." },
+            { category: "marketing-ads", name: "Pebblely AI", pricing: "freemium", badge: "خلفيات إعلانية سريعة", url: "https://pebblely.com", description: "تحول صور المنتجات العادية إلى لقطات إعلانية فاخرة؛ تمنحك 40 صورة مجانية شهرياً لتوليد خلفيات تفاعلية بـ 13 أسلوباً تسويقياً مختلفاً." },
+            { category: "marketing-ads", name: "Photoroom AI", pricing: "freemium", badge: "بوسترات السوشيال ميديا", url: "https://www.photoroom.com", description: "محرر سريع جداً لإزالة خلفيات المنتجات بدقة خرافية وتوليد بوسترات تسويقية جاهزة ومناسبة لمنصات إنستغرام وتيك توك." },
+            { category: "marketing-ads", name: "Microsoft Designer", pricing: "free", badge: "بوسترات إعلانية مجانية", url: "https://designer.microsoft.com", description: "أداة مجانية بالكامل من مايكروسوفت لإنشاء تصميمات وبوسترات إعلانية متكاملة تدمج بين الصور والنصوص التسويقية بشكل جذاب." },
 
-            // --- صناعة محتوى الـ Shorts والتيك توك ---
-            { name: "Opus Clip", pricing: "freemium", badge: "تقطيع تلقائي ذكي", url: "https://www.opus.pro", description: "أداة خرافية؛ تأخذ الفيديوهات الطويلة من يوتيوب وتقوم بتقطيعها تلقائياً لاستخراج أفضل مقاطع Shorts جاهزة بالترجمة التلقائية والـ Viral Score." },
-            { name: "CapCut Web (AI)", pricing: "free", badge: "مونتاج مجاني سحابي", url: "https://www.capcut.com", description: "النسخة السحابية من كاب كات؛ تحتوي على الترجمة العربية التلقائية الذكية وتوليد الفيديو السريع وإصلاح عيوب الصوت للـ Shorts." },
-            { name: "Vizard AI", pricing: "freemium", badge: "قص البودكاست", url: "https://vizard.ai", description: "مخصصة لقص فيديوهات البودكاست والمقابلات الطويلة وتحويلها إلى مقاطع عمودية جذابة جاهزة للنشر الفوري لجلب ملايين المشاهدات." },
-            { name: "Munch", pricing: "freemium", badge: "تتبع تريندات السوشيال", url: "https://www.getmunch.com", description: "استخراج أفضل مقاطع قصيرة وفيرال من الفيديوهات الطويلة مع ربطها تلقائياً بالتريندات الحالية على تيك توك وإنستغرام." },
-            { name: "Vidyo.ai", pricing: "freemium", badge: "قوالب شورتس جاهزة", url: "https://vidyo.ai", description: "توليد مقاطع قصيرة من الفيديوهات الطويلة وإضافة قوالب ترجمة ذكية متحركة، تماثل أسلوب كبار صناع المحتوى عالمياً." },
+            // --- إنتاج الفيديو والسينما والمؤثرات البصرية ---
+            { category: "video-gen", name: "Google Lumiere", pricing: "free", badge: "فيديو سينمائي متقدم", url: "https://research.google/user-resources/lumiere/", description: "النموذج الثوري المتقدم من جوجل لتوليد فيديوهات سينمائية انسيابية فائقة الواقعية والتحكم الإخراجي الكامل في حركة المشاهد الحركية البصرية." },
+            { category: "video-gen", name: "Luma Dream Machine", pricing: "freemium", badge: "فيديو حركي سريع", url: "https://lumalabs.ai/dream-machine", description: "يولد فيديوهات سينمائية واقعية وحركية مدتها 5 ثوانٍ من النصوص أو الصور بدقة بالغة وفهم لحركات الكاميرا المعقدة والدولي شوت." },
+            { category: "video-gen", name: "Kling AI", pricing: "freemium", badge: "حركات بشرية فيزيائية", url: "https://klingai.com", description: "عملاق إنتاج الفيديو الفاخر، يعطي حركات جسدية واقعية جداً ويمتاز بإنتاج مشاهد طويلة ونقية للوجوه والطبيعة مع نقاط مجانية يومية." },
+            { category: "video-gen", name: "Runway Gen-3", pricing: "freemium", badge: "سينمائي احترافي توب", url: "https://runwayml.com", description: "الخيار الأول لمخرجي الأفلام ومصنعي المحتوى لإنتاج مؤثرات بصرية وفيديوهات فائقة الواقعية والتحكم التام في زوايا الإخراج." },
 
-            // --- البرمجة وبناء المواقع ---
-            { name: "v0 by Vercel", pricing: "freemium", badge: "واجهات وتطبيقات فورية", url: "https://v0.dev", description: "اكتب وصف للواجهة أو المتجر الإلكتروني الذي تريده، وستقوم بتوليد الكود البرمجي الكامل والواجهة الأنيقة أمامك خلال ثوانٍ معدودة." },
-            { name: "Bolt.new", pricing: "freemium", badge: "تطبيقات كاملة بالمتصفح", url: "https://bolt.new", description: "منصة برمجية ثورية تتيح لك بناء، تشغيل، وتثبيت تطبيقات ومواقع ويب متكاملة من الصفر مباشرة داخل المتصفح بالشات فقط." },
-            { name: "Cursor Editor", pricing: "freemium", badge: "مساعد برمجة خارق", url: "https://www.cursor.com", description: "برنامج كتابة الأكواد الأقوى للمطورين، مدمج بالكامل بالذكاء الاصطناعي لكتابة الأكواد وتصحيح الأخطاء وبناء المشاريع الضخمة بشات جانبي." },
-            { name: "Replit Agent", pricing: "freemium", badge: "مطور برمجيات مستقل", url: "https://replit.com", description: "وكيل برمجيات ذكي يبني لك المواقع والتطبيقات من الأوامر النصية، ويقوم برفعها وتشغيلها حية على الإنترنت بدون تدخل منك." },
+            // --- الهندسة الصوتية والموسيقى والاستنساخ ---
+            { category: "audio-music", name: "Adobe Podcast AI", pricing: "freemium", badge: "تنقية صوت الاستوديو", url: "https://podcast.adobe.com", description: "أداة خرافية تقوم بتنقية التسجيلات الصوتية المنزلية أو الضعيفة وإزالة التشويش والصدى تماماً، لتجعل صوتك يبدو وكأنه سُجِّل في استوديو معزول ومحترف." },
+            { category: "audio-music", name: "Suno AI", pricing: "freemium", badge: "صناعة أغاني وموسيقى", url: "https://suno.com", description: "الأداة الثورية الأشهر عالمياً لتوليد أغانٍ ومقاطع موسيقية متكاملة بجودة عالية من الكلمات والأوامر النصية فقط مع تحديد اللحن والنوع الموسيقي." },
+            { category: "audio-music", name: "Udio AI", pricing: "freemium", badge: "توزيع موسيقي سينمائي", url: "https://www.udio.com", description: "منافس شرس في إنتاج الأغاني والموسيقى، يمتاز بنقاء صوتي مذهل وقدرة عالية على عمل توزيع موسيقي احترافي وسينمائي مبهر." },
+            { category: "audio-music", name: "Voice.ai", pricing: "free", badge: "مغير ومستنسخ الصوت", url: "https://voice.ai", description: "مغير ومحول للأصوات في الوقت الفعلي، يتيح لك استنساخ وتحويل صوتك إلى أصوات مشاهير أو شخصيات كرتونية بدقة عالية أثناء البث أو التسجيل." },
 
-            // --- الأفاتار والاستنساخ الصوتي ---
-            { name: "HeyGen", pricing: "freemium", badge: "متحدث افتراضي واقعي", url: "https://www.heygen.com", description: "المنصة الأولى عالمياً لإنشاء أفاتار رقمي فائق الواقعية يتحدث بأي لغة بالعالم بحركات شفايف وتعبيرات وجه بشرية متطابقة 100%." },
-            { name: "ElevenLabs", pricing: "freemium", badge: "استنساخ وتعليق صوتي", url: "https://elevenlabs.io", description: "تحويل النصوص إلى أصوات بشرية مليئة بالمشاعر، مع ميزة استنساخ صوتك أو أي صوت بشري بدقة فائقة من عينة صوتية مدتها دقيقة." },
-            { name: "Synthesia", pricing: "premium", badge: "فيديوهات عرض وتدريب", url: "https://www.synthesia.io", description: "صناعة فيديوهات تقديمية وتدريبية احترافية للشركات والمؤسسات باستخدام مقدمين افتراضيين متاحين بأكثر من 120 لغة." },
+            // --- صناعة وتعديل محتوى Shorts و TikTok ---
+            { category: "shorts-tiktok", name: "Opus Clip", pricing: "freemium", badge: "تقطيع تلقائي ذكي", url: "https://www.opus.pro", description: "تأخذ الفيديوهات الطويلة من يوتيوب وتقوم بتقطيعها تلقائياً لاستخراج أفضل مقاطع Shorts جاهزة بالترجمة التلقائية المتحركة الـ Viral." },
+            { category: "shorts-tiktok", name: "CapCut Web (AI)", pricing: "free", badge: "مونتاج مجاني سحابي", url: "https://www.capcut.com", description: "النسخة السحابية من كاب كات؛ تحتوي على الترجمة العربية التلقائية الذكية وتوليد الفيديو السريع وإصلاح عيوب الهندسة الصوتية للـ Shorts." },
+            { category: "shorts-tiktok", name: "Vizard AI", pricing: "freemium", badge: "قص وتفريغ البودكاست", url: "https://vizard.ai", description: "مخصصة لقص فيديوهات البودكاست والمقابلات الطويلة وتحويلها إلى مقاطع عمودية جذابة جاهزة للنشر الفوري لجلب ملايين المشاهدات." },
 
-            // --- معالجة الصور والأدوات المدمجة ---
-            { name: "RMBG 1.4 Background Remover", pricing: "free", badge: "أداة مدمجة ومجانية", url: "#", description: "أداة مدمجة داخل منصتنا؛ نموذج ذكاء اصطناعي فائق السرعة لإزالة خلفيات الصور بدقة خرافية خلال أقل من ثانيتين وبشكل مجاني وغير محدود." },
-            { name: "Lexica Art", pricing: "free", badge: "محرك برومبت جاهز", url: "https://lexica.art", description: "أضخم محرك بحث ومكتبة لصور الذكاء الاصطناعي، يتيح لك تصفح ملايين الصور واقتباس البرومبت الدقيق الذي أنتجها وإعداداتها بضغطة زر." }
+            // --- البرمجة الذكية وبناء المواقع الفورية ---
+            { category: "coding-web", name: "v0 by Vercel", pricing: "freemium", badge: "واجهات وتطبيقات فورية", url: "https://v0.dev", description: "اكتب وصف للواجهة أو المتجر الإلكتروني الذي تريده، وستقوم بتوليد الكود البرمجي الكامل والواجهة الأنيقة أمامك خلال ثوانٍ معدودة." },
+            { category: "coding-web", name: "Bolt.new", pricing: "freemium", badge: "تتبيث تطبيقات بالمتصفح", url: "https://bolt.new", description: "منصة برمجية ثورية تتيح لك بناء، تشغيل، وتثبيت تطبيقات ومواقع ويب متكاملة من الصفر مباشرة داخل المتصفح بالشات البرمجي فقط." }
         ];
 
-        function renderTools(toolsList) {
-            const grid = document.getElementById('toolsGrid');
-            grid.innerHTML = '';
+        function renderDashboard(toolsList) {
+            const container = document.getElementById('categoriesContainer');
+            container.innerHTML = '';
             document.getElementById('toolsCount').innerText = toolsList.length;
-            
-            if(toolsList.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-20 bg-[#0F1524] rounded-2xl border border-gray-800">
-                        <i class="fas fa-th text-4xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400 text-sm">لا توجد أدوات تطابق خيارات البحث الحالية.</p>
-                    </div>
-                `;
-                return;
-            }
 
+            // تجميع الأدوات حسب التخصص الفعلي لتوليد العرض المقسم
+            const grouped = {};
+            Object.keys(CATEGORIES).forEach(cat => grouped[cat] = []);
+            
             toolsList.forEach(tool => {
-                grid.innerHTML += `
-                    <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 hover:shadow-xl transition-all relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${tool.pricing === 'free' ? 'from-green-500 to-emerald-400' : 'from-purple-500 to-indigo-500'}"></div>
-                        <div>
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-md font-bold text-white group-hover:text-purple-400 transition-colors">${tool.name}</h3>
-                                <span class="text-[10px] font-bold px-2.5 py-1 rounded-md ${tool.pricing === 'free' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'}">${tool.badge}</span>
+                if (grouped[tool.category]) {
+                    grouped[tool.category].push(tool);
+                }
+            });
+
+            let hasResults = false;
+
+            Object.keys(CATEGORIES).forEach(catId => {
+                const catTools = grouped[catId];
+                if (catTools.length > 0) {
+                    hasResults = true;
+                    
+                    // بناء عنوان وفهرس القسم الجانبي
+                    let sectionHtml = `
+                        <div class="category-section border-t border-gray-800/60 pt-8">
+                            <h2 class="text-lg font-black text-white mb-6 flex items-center gap-2.5">
+                                <span class="bg-purple-600/10 border border-purple-500/30 p-2 rounded-xl text-purple-400">
+                                    <i class="fas ${CATEGORIES[catId].icon}"></i>
+                                </span>
+                                ${CATEGORIES[catId].name}
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    `;
+
+                    // حقن بطاقات الأدوات للقسم الحالي
+                    catTools.forEach(tool => {
+                        sectionHtml += `
+                            <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 hover:shadow-xl transition-all relative overflow-hidden group">
+                                <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${tool.pricing === 'free' ? 'from-green-500 to-emerald-400' : 'from-purple-500 to-indigo-500'}"></div>
+                                <div>
+                                    <div class="flex items-start justify-between mb-4">
+                                        <h3 class="text-md font-bold text-white group-hover:text-purple-400 transition-colors">${tool.name}</h3>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md ${tool.pricing === 'free' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'}">${tool.badge}</span>
+                                    </div>
+                                    <p class="text-gray-400 text-xs leading-relaxed mb-6 text-justify">${tool.description}</p>
+                                </div>
+                                <div class="border-t border-gray-800/60 pt-4 flex items-center justify-between mt-auto">
+                                    <span class="text-[10px] text-gray-500">🌐 رابط زيارة مباشر</span>
+                                    <a href="${tool.url}" target="_blank" class="inline-flex items-center gap-1.5 bg-[#151D30] text-gray-300 hover:bg-[#1A243C] text-xs font-bold px-4 py-2 rounded-xl border border-gray-700/50 transition-colors">
+                                        زيارة الموقع <i class="fas fa-external-link text-[10px]"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-6 text-justify">${tool.description}</p>
-                        </div>
-                        <div class="border-t border-gray-800/60 pt-4 flex items-center justify-between mt-auto">
-                            <span class="text-[10px] text-gray-500">${tool.url === '#' ? '⚙️ أداة مدمجة بالموقع' : '🌐 رابط زيارة خارجي'}</span>
-                            <a href="${tool.url}" target="_blank" class="inline-flex items-center gap-1.5 bg-[#151D30] text-gray-300 hover:bg-[#1A243C] text-xs font-bold px-4 py-2 rounded-xl border border-gray-700/50 transition-colors">
-                                ${tool.url === '#' ? 'شغّل الأداة' : 'زيارة الموقع'} <i class="fas fa-external-link text-[10px]"></i>
-                            </a>
-                        </div>
+                        `;
+                    });
+
+                    sectionHtml += `</div></div>`;
+                    container.innerHTML += sectionHtml;
+                }
+            });
+
+            if (!hasResults) {
+                container.innerHTML = `
+                    <div class="text-center py-20 bg-[#0F1524] rounded-2xl border border-gray-800">
+                        <i class="fas fa-layer-group text-4xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400 text-sm">لا توجد أدوات تطابق خيارات البحث الحالية في أي قسم.</p>
                     </div>
                 `;
-            });
+            }
         }
 
         function filterTools() {
@@ -173,11 +209,11 @@
                 const matchesPricing = pricing === 'all' || tool.pricing === pricing;
                 return matchesSearch && matchesPricing;
             });
-            renderTools(filtered);
+            renderDashboard(filtered);
         }
 
-        // تشغيل فوري لعرض مئات الأدوات عند فتح الصفحة
-        renderTools(TOOLS);
+        // تشغيل أولي وبناء فوري للمنصة المقسمة
+        renderDashboard(TOOLS);
     </script>
 </body>
 </html>
