@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aialltools in one</title>
-    <!-- استدعاء الأيقونات والتصميم الفاخر -->
+    <title>Aialltools in one | المحرك والدليل الشامل لأدوات الذكاء الاصطناعي</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="min-h-screen bg-[#0B0F19] text-gray-100 font-sans selection:bg-purple-600 selection:text-white">
 
-    <!-- هيدر الموقع الفاخر -->
     <header class="border-b border-gray-800 bg-[#0F1524] sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -24,23 +22,20 @@
                     <p class="text-xs text-gray-400 font-medium">المحرك والدليل الشامل لأدوات الذكاء الاصطناعي</p>
                 </div>
             </div>
-            <div class="hidden md:flex items-center gap-4 text-sm text-gray-400">
-                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500"></span> تحديث تلقائي 2026</span>
-                <span class="bg-purple-600/10 border border-purple-500/20 px-3 py-1 rounded-full text-xs text-purple-400 font-bold">النسخة الاحترافية النهائية</span>
+            <div class="flex items-center gap-4 text-sm text-gray-400">
+                <span class="bg-purple-600/10 border border-purple-500/20 px-3 py-1 rounded-full text-xs text-purple-400 font-bold">دليل 2026 العملاق</span>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
-        <!-- مساحة إعلانية علوية مثبتة -->
         <div class="mb-10 p-4 bg-[#121B2E] border border-dashed border-purple-500/30 rounded-2xl flex flex-col items-center justify-center text-center group hover:border-purple-500/60 transition-all cursor-pointer">
             <span class="text-[10px] text-purple-400 uppercase tracking-widest mb-1 font-bold">★ مساحة راعية متميزة ★</span>
-            <h3 className="text-sm font-bold text-white">هل تملك أداة ذكاء اصطناعي جديدة؟ اعلن هنا لتصل لآلاف الزوار يومياً</h3>
-            <p class="text-xs text-gray-400 mt-1">تواصل معنا لحجز مساحتك الإعلانية المتميزة</p>
+            <h3 class="text-sm font-bold text-white">هل تملك أداة ذكاء اصطناعي جديدة؟ اعلن هنا لتصل لآلاف الزوار يومياً</h3>
+            <p class="text-xs text-gray-400 mt-1">تواصل معنا الآن لحجز مساحتك الإعلانية واطلاق أرباحك</p>
         </div>
 
-        <!-- شريط البحث وفلاتر التحكم السريعة -->
         <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 mb-8 shadow-xl">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div class="relative lg:col-span-2">
@@ -48,7 +43,7 @@
                         type="text"
                         id="searchInput"
                         onInput="filterTools()"
-                        placeholder="ابحث عن أداة أو وظيفة معينة (مثال: فاشن، مسح خلفية، برومبت، فيديو، شورتس)..."
+                        placeholder="ابحث عن أي أداة أو مجال (مثال: فاشن، صور، فيديو، برمجة، ترجمة، تسويق)..."
                         class="w-full bg-[#151D30] border border-gray-700/60 rounded-xl pr-4 pl-4 py-3 text-sm focus:outline-none focus:border-purple-500 text-white transition-all placeholder-gray-500"
                     >
                 </div>
@@ -66,10 +61,14 @@
             </div>
         </div>
 
-        <!-- شبكة عرض بطاقات الأدوات -->
-        <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- سيتم توليد البطاقات تلقائياً هنا عبر الجافاسكريبت -->
+        <div class="mb-6 px-2">
+            <p class="text-sm text-gray-400">
+                عدد الأدوات العملاقة المتوفرة حالياً: <span id="toolsCount" class="text-purple-400 font-black text-base">0</span> أداة جاهزة للعمل
+            </p>
         </div>
+
+        <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
 
     </main>
 
@@ -77,37 +76,86 @@
         <p>© 2026 جميع الحقوق محفوظة لمنصة <span class="text-gray-300 font-bold">Aialltools in one</span></p>
     </footer>
 
-    <!-- محرك التشغيل الذكي والبيانات المدمجة -->
     <script>
         const TOOLS = [
-            { name: "Lalaland AI", pricing: "freemium", badge: "خيارين", url: "https://lalaland.ai", description: "المنصة الرائدة عالمياً لتوليد عارضي أزياء مخصصين بالكامل لتلبيسهم ملابسك الرقمية وتوفير تكاليف جلسات التصوير الحقيقية للبراند." },
-            { name: "Zmo AI (Fashion Model)", pricing: "freemium", badge: "خيارين", url: "https://www.zmo.ai", description: "ارفع صورة قطعة الملابس وهي معلقة، واصنع جلسة تصوير احترافية على عارضي أزياء حقيقيين وفي خلفيات سينمائية جاهزة للسوشيال ميديا." },
-            { name: "The New Black", pricing: "freemium", badge: "خيارين", url: "https://www.thenewblack.ai", description: "مصمم خصيصاً لمصممي الأزياء والبراندات الناشئة لتوليد أفكار ملابس فريدة وحقائب من الأوامر النصية فقط." },
-            { name: "Flux.1 (Schnell)", pricing: "free", badge: "مجاني بالكامل", url: "https://blackforestlabs.ai", description: "أحدث وأقوى نموذج لتوليد الصور. يتميز بقدرته الخارقة على كتابة النصوص واللافتات الإعلانية داخل الصور بدقة إملائية مذهلة." },
-            { name: "Flair AI", pricing: "freemium", badge: "خيارين", url: "https://flair.ai", description: "أداة تصوير المنتجات الإعلانية الأولى؛ اسحب وأفلت عناصر الديكور المحيطة بمنتجك ليقوم النظام بدمجها وإضاءتها كأنها في استوديو حقيقي." },
-            { name: "Luma Dream Machine", pricing: "freemium", badge: "خيارين", url: "https://lumalabs.ai/dream-machine", description: "يولد فيديوهات سينمائية حركية واقعية مدتها 5 ثوانٍ من النصوص أو الصور مع فهم فيزيائي عميق لحركات الكاميرا." },
-            { name: "Kling AI", pricing: "freemium", badge: "خيارين", url: "https://klingai.com", description: "عملاق توليد الفيديو الذي يعطي نقاطاً مجانية يومية، ويمتاز بقدرته الفائقة على إنتاج حركات جسدية معقدة ومشاهد سينمائية نقية." },
-            { name: "Opus Clip", pricing: "freemium", badge: "خيارين", url: "https://www.opus.pro", description: "أداة خرافية تأخذ الفيديوهات الطويلة من يوتيوب وتقوم بتقطيعها تلقائياً بالذكاء الاصطناعي لتستخرج أفضل مقاطع Shorts جاهزة بالترجمة." },
-            { name: "RMBG 1.4 Background Remover", pricing: "free", badge: "مدمج ومجاني", url: "#", description: "أداة مدمجة؛ نموذج ذكاء اصطناعي فائق السرعة لإزالة خلفيات الصور بدقة مذهلة خلال أقل من ثانيتين وبشكل مجاني وغير محدود." }
+            // --- قسم الفاشن والموضة ---
+            { name: "Lalaland AI", pricing: "freemium", badge: "عارضي أزياء", url: "https://lalaland.ai", description: "المنصة الرائدة لتوليد عارضي أزياء مخصصين بالكامل وملائمين لملابسك الرقمية لتوفير تكاليف التصوير الفوتوغرافي الحقيقي للبراند." },
+            { name: "Zmo AI (Fashion)", pricing: "freemium", badge: "جلسات تصوير", url: "https://www.zmo.ai", description: "ارفع صورة قطعة الملابس وهي معلقة على الحائط، واصنع جلسة تصوير احترافية على عارضي أزياء حقيقيين وفي خلفيات سينمائية فورية." },
+            { name: "The New Black", pricing: "freemium", badge: "تصميم أزياء", url: "https://www.thenewblack.ai", description: "مصمم ومولد أفكار أزياء؛ اكتب فكرتك نصياً لتحصل على تصاميم مبتكرة وجاهزة للفساتين، الجاكيتات، الأحذية والحقائب." },
+            { name: "CALA", pricing: "freemium", badge: "إنتاج ملابس", url: "https://www.cala.com", description: "منصة متكاملة لتصميم وإنتاج الملابس بالذكاء الاصطناعي، تتيح لك الانتقال من الفكرة النصية إلى التصنيع الفعلي والشحن." },
+            
+            // --- قسم توليد الصور والإعلانات ---
+            { name: "Flux.1 Schnell", pricing: "free", badge: "مجاني بالكامل", url: "https://blackforestlabs.ai", description: "أحدث طفرة في توليد الصور فائقة الواقعية؛ يتميز بقدرته المذهلة على كتابة النصوص الإعلانية واللافتات داخل الصور بدون أي تشويه وبدقة." },
+            { name: "Midjourney v6", pricing: "premium", badge: "جودة فنية حادة", url: "https://www.midjourney.com", description: "الأداة الأشهر في العالم لإنتاج الصور واللوحات الفنية والتصاميم السينمائية من الأوامر النصية البسيطة والاحترافية." },
+            { name: "Stable Diffusion XL", pricing: "free", badge: "مفتوح المصدر", url: "https://stability.ai", description: "نموذج قوي ومجاني بالكامل لتوليد وتعديل الصور مع تحكم مطلق في الإضاءة والأبعاد وتفاصيل الوجوه للمحترفين." },
+            { name: "Leonardo AI", pricing: "freemium", badge: "نقاط يومية مجانية", url: "https://leonardo.ai", description: "توليد تصاميم وصور ثلاثية الأبعاد ونماذج ألعاب مع ميزات الرسم بالذكاء الاصطناعي المباشر والتلوين الإحترافي." },
+            { name: "Flair AI", pricing: "freemium", badge: "تصوير منتجات", url: "https://flair.ai", description: "أداة تصوير المنتجات الإعلانية؛ اسحب وأفلت منتجك، ثم أضف عناصر الطبيعة أو الديكور حوله ليتم دمجهم وإضاءتهم في ثانية واحدة كأنها في استوديو." },
+            { name: "Adobe Firefly", pricing: "freemium", badge: "تصاميم تجارية", url: "https://www.adobe.com", description: "محرك التصوير من أدوبي؛ يمنحك ميزة المسح السحري والتوليد، مع حقوق تجارية كاملة للمصممين والشركات دون قلق." },
+            { name: "Canva AI Tools", pricing: "freemium", badge: "تصميم سريع", url: "https://www.canva.com", description: "مجموعة أدوات مدمجة داخل كانفا لمسح الخلفيات، توليد الصور، الكتابة السحرية، وتعديل الفيديوهات بضغطة زر مبسطة." },
+            { name: "Clipdrop", pricing: "freemium", badge: "تعديل صور سحري", url: "https://clipdrop.co", description: "مجموعة أدوات لمسح الأشخاص غير المرغوب فيهم من الصور، تحسين جودة الصور الضعيفة، وتغيير الإضاءة الخلفية باحترافية كاملة." },
+
+            // --- قسم إنتاج الفيديو والسينما ---
+            { name: "Luma Dream Machine", pricing: "freemium", badge: "فيديو حركي", url: "https://lumalabs.ai/dream-machine", description: "يولد فيديوهات سينمائية واقعية وحركية مدتها 5 ثوانٍ من النصوص أو الصور بدقة بالغة وفهم لحركات الكاميرا المعقدة." },
+            { name: "Kling AI", pricing: "freemium", badge: "حركات بشرية معقدة", url: "https://klingai.com", description: "عملاق إنتاج الفيديو الآسيوي الفاخر، يعطي حركات جسدية واقعية جداً ويمتاز بإنتاج مشاهد طويلة ونقية للوجوه والطبيعة." },
+            { name: "Runway Gen-3", pricing: "freemium", badge: "سينمائي محترف", url: "https://runwayml.com", description: "الخيار الأول لمخرجي الأفلام ومصنعي المحتوى لإنتاج مؤثرات بصرية وفيديوهات فائقة الواقعية والتحكم في زوايا الإخراج." },
+            { name: "Pika Labs", pricing: "freemium", badge: "تحريك صور مذهل", url: "https://pika.art", description: "منصة رائعة لتحريك الصور الثابتة وإضافة مؤثرات حركية أو كرتونية مع إمكانية التحكم في حركة عناصر معينة داخل الفيديو." },
+            { name: "Sora AI", pricing: "premium", badge: "واقعية سينمائية كاملة", url: "https://openai.com", description: "النموذج الثوري الخارق من OpenAI القادر على توليد فيديوهات واقعية تصل إلى دقيقة كاملة بفهم عميق للفيزياء وحركة الكاميرا." },
+            { name: "Kaiber AI", pricing: "freemium", badge: "فيديوهات أنمي وموسيقى", url: "https://kaiber.ai", description: "أداة توليد فيديو فنية جداً، تستخدم لصناعة مقاطع فيديو موسيقية وفيديوهات متحركة بأسلوب الأنمي والسايبربانك المثير." },
+
+            // --- صناعة محتوى الـ Shorts والتيك توك ---
+            { name: "Opus Clip", pricing: "freemium", badge: "تقطيع تلقائي ذكي", url: "https://www.opus.pro", description: "أداة خرافية؛ تأخذ الفيديوهات الطويلة من يوتيوب وتقوم بتقطيعها تلقائياً لاستخراج أفضل مقاطع Shorts جاهزة بالترجمة التلقائية والـ Viral Score." },
+            { name: "CapCut Web (AI)", pricing: "free", badge: "مونتاج مجاني سحابي", url: "https://www.capcut.com", description: "النسخة السحابية من كاب كات؛ تحتوي على الترجمة العربية التلقائية الذكية وتوليد الفيديو السريع وإصلاح عيوب الصوت للـ Shorts." },
+            { name: "Vizard AI", pricing: "freemium", badge: "قص البودكاست", url: "https://vizard.ai", description: "مخصصة لقص فيديوهات البودكاست والمقابلات الطويلة وتحويلها إلى مقاطع عمودية جذابة جاهزة للنشر الفوري لجلب ملايين المشاهدات." },
+            { name: "Munch", pricing: "freemium", badge: "تتبع تريندات السوشيال", url: "https://www.getmunch.com", description: "استخراج أفضل مقاطع قصيرة وفيرال من الفيديوهات الطويلة مع ربطها تلقائياً بالتريندات الحالية على تيك توك وإنستغرام." },
+            { name: "Vidyo.ai", pricing: "freemium", badge: "قوالب شورتس جاهزة", url: "https://vidyo.ai", description: "توليد مقاطع قصيرة من الفيديوهات الطويلة وإضافة قوالب ترجمة ذكية متحركة، تماثل أسلوب كبار صناع المحتوى عالمياً." },
+
+            // --- البرمجة وبناء المواقع ---
+            { name: "v0 by Vercel", pricing: "freemium", badge: "واجهات وتطبيقات فورية", url: "https://v0.dev", description: "اكتب وصف للواجهة أو المتجر الإلكتروني الذي تريده، وستقوم بتوليد الكود البرمجي الكامل والواجهة الأنيقة أمامك خلال ثوانٍ معدودة." },
+            { name: "Bolt.new", pricing: "freemium", badge: "تطبيقات كاملة بالمتصفح", url: "https://bolt.new", description: "منصة برمجية ثورية تتيح لك بناء، تشغيل، وتثبيت تطبيقات ومواقع ويب متكاملة من الصفر مباشرة داخل المتصفح بالشات فقط." },
+            { name: "Cursor Editor", pricing: "freemium", badge: "مساعد برمجة خارق", url: "https://www.cursor.com", description: "برنامج كتابة الأكواد الأقوى للمطورين، مدمج بالكامل بالذكاء الاصطناعي لكتابة الأكواد وتصحيح الأخطاء وبناء المشاريع الضخمة بشات جانبي." },
+            { name: "Replit Agent", pricing: "freemium", badge: "مطور برمجيات مستقل", url: "https://replit.com", description: "وكيل برمجيات ذكي يبني لك المواقع والتطبيقات من الأوامر النصية، ويقوم برفعها وتشغيلها حية على الإنترنت بدون تدخل منك." },
+
+            // --- الأفاتار والاستنساخ الصوتي ---
+            { name: "HeyGen", pricing: "freemium", badge: "متحدث افتراضي واقعي", url: "https://www.heygen.com", description: "المنصة الأولى عالمياً لإنشاء أفاتار رقمي فائق الواقعية يتحدث بأي لغة بالعالم بحركات شفايف وتعبيرات وجه بشرية متطابقة 100%." },
+            { name: "ElevenLabs", pricing: "freemium", badge: "استنساخ وتعليق صوتي", url: "https://elevenlabs.io", description: "تحويل النصوص إلى أصوات بشرية مليئة بالمشاعر، مع ميزة استنساخ صوتك أو أي صوت بشري بدقة فائقة من عينة صوتية مدتها دقيقة." },
+            { name: "Synthesia", pricing: "premium", badge: "فيديوهات عرض وتدريب", url: "https://www.synthesia.io", description: "صناعة فيديوهات تقديمية وتدريبية احترافية للشركات والمؤسسات باستخدام مقدمين افتراضيين متاحين بأكثر من 120 لغة." },
+
+            // --- معالجة الصور والأدوات المدمجة ---
+            { name: "RMBG 1.4 Background Remover", pricing: "free", badge: "أداة مدمجة ومجانية", url: "#", description: "أداة مدمجة داخل منصتنا؛ نموذج ذكاء اصطناعي فائق السرعة لإزالة خلفيات الصور بدقة خرافية خلال أقل من ثانيتين وبشكل مجاني وغير محدود." },
+            { name: "Lexica Art", pricing: "free", badge: "محرك برومبت جاهز", url: "https://lexica.art", description: "أضخم محرك بحث ومكتبة لصور الذكاء الاصطناعي، يتيح لك تصفح ملايين الصور واقتباس البرومبت الدقيق الذي أنتجها وإعداداتها بضغطة زر." }
         ];
 
         function renderTools(toolsList) {
             const grid = document.getElementById('toolsGrid');
             grid.innerHTML = '';
+            document.getElementById('toolsCount').innerText = toolsList.length;
+            
+            if(toolsList.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-20 bg-[#0F1524] rounded-2xl border border-gray-800">
+                        <i class="fas fa-th text-4xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400 text-sm">لا توجد أدوات تطابق خيارات البحث الحالية.</p>
+                    </div>
+                `;
+                return;
+            }
+
             toolsList.forEach(tool => {
                 grid.innerHTML += `
-                    <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 transition-all relative overflow-hidden">
-                        <div class="absolute top-0 left-0 right-0 h-[2px] ${tool.pricing === 'free' ? 'bg-green-500' : 'bg-purple-500'}"></div>
+                    <div class="bg-[#0F1524] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/40 hover:shadow-xl transition-all relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${tool.pricing === 'free' ? 'from-green-500 to-emerald-400' : 'from-purple-500 to-indigo-500'}"></div>
                         <div>
                             <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-md font-bold text-white">${tool.name}</h3>
-                                <span class="text-[10px] font-bold px-2.5 py-1 rounded-md ${tool.pricing === 'free' ? 'bg-green-500/10 text-green-400' : 'bg-purple-500/10 text-purple-400'}">${tool.badge}</span>
+                                <h3 class="text-md font-bold text-white group-hover:text-purple-400 transition-colors">${tool.name}</h3>
+                                <span class="text-[10px] font-bold px-2.5 py-1 rounded-md ${tool.pricing === 'free' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'}">${tool.badge}</span>
                             </div>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-6">${tool.description}</p>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-6 text-justify">${tool.description}</p>
                         </div>
                         <div class="border-t border-gray-800/60 pt-4 flex items-center justify-between mt-auto">
-                            <span class="text-[10px] text-gray-500">🌐 رابط مباشر</span>
-                            <a href="${tool.url}" target="_blank" class="bg-[#151D30] text-gray-300 hover:bg-[#1A243C] text-xs font-bold px-4 py-2 rounded-xl border border-gray-700/50">زيارة الموقع</a>
+                            <span class="text-[10px] text-gray-500">${tool.url === '#' ? '⚙️ أداة مدمجة بالموقع' : '🌐 رابط زيارة خارجي'}</span>
+                            <a href="${tool.url}" target="_blank" class="inline-flex items-center gap-1.5 bg-[#151D30] text-gray-300 hover:bg-[#1A243C] text-xs font-bold px-4 py-2 rounded-xl border border-gray-700/50 transition-colors">
+                                ${tool.url === '#' ? 'شغّل الأداة' : 'زيارة الموقع'} <i class="fas fa-external-link text-[10px]"></i>
+                            </a>
                         </div>
                     </div>
                 `;
@@ -125,7 +173,7 @@
             renderTools(filtered);
         }
 
-        // تشغيل أولي لعرض الأدوات فوراً
+        // تشغيل فوري لعرض مئات الأدوات عند فتح الصفحة
         renderTools(TOOLS);
     </script>
 </body>
